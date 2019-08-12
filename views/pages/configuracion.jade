@@ -1,0 +1,90 @@
+extends ../parts/layout.jade
+block vars
+    - page = 'Configuracion';
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+               li.active Configuracion
+        
+    .container-fluid.half-padding
+        .template.template__validation
+            .row
+                .col-md-6
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Registrar velocidad maxima con vehiculo en movimiento y puertas abiertas
+                        .panel-body
+                            .row
+                                .form-group
+                                    label.col-sm-8.control-label SEGURIDAD: Maximo de velocidad cuando la puerta del vehiculo esta abierta:(Km/h)
+                                    .col-sm-3
+                                        input.form-control(type="text" id="seguridad" placeholder="Km/h" name="seguridad" value="#{configuracion[0].seguridad}" required)
+                                
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Registrar distancia maxima de alejamiento en la ruta
+                        .panel-body
+                            .row
+                                
+                                .form-group
+                                    label.col-sm-8.control-label RUTA: Maximo de distancia que el vehiculo puede alejarse de la ruta asiganada:(Metros)
+                                    .col-sm-3
+                                        input.form-control(type="text" id="ruta" placeholder="Metros" value="#{configuracion[0].ruta}" name="ruta" required)
+                    .row
+                        button.btn.btn-success(type='button' onclick="GuardarConfiguracion()") GUARDAR
+                .col-md-6
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Registrar Velocidad Maxima por Tramos
+                        .panel-body
+                            div(id="DatosVelocidad")
+                            .form-group
+                                        label.col-sm-9.control-label VELOCIDAD: Maximo de velocidad permitido en un zona deternimada:
+                                        .col-sm-3
+                                            button.btn.btn-primary(data-toggle="modal" onclick="NuevaVelocidad()") Agregar Velocidad
+                                    table(id="example" class="table datatable display table-hover" cellspacing="0" width="100%")
+                                                    thead
+                                                        tr
+                                                            th Descripcion
+                                                            th Velocidad Maxima
+                                                            th Color
+                                                    tbody
+                                                            each Velocidad in velocidad
+                                                                tr
+                                                                    td=Velocidad.zona
+                                                                    td=Velocidad.velocidad
+                                                                    td
+                                                                        input.form-control(name="color" ,type="color", value=""+Velocidad.color+"" disabled)
+                                                                    td
+                                                                        button(class="btn btn-warning" onClick="EditarVelocidad('"+Velocidad.idvelocidad+"')")
+                                                                            i(class="fa fa-pencil fa-fw")
+
+                                                                        button(class="btn btn-danger" onClick="EliminarVelocidad('"+Velocidad.idvelocidad+"')") 
+                                                                            i(class="fa fa-remove fa-fw")
+
+
+block css
+    link(href='../public/libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='../public/libs/selectize/dist/css/selectize.default.css', rel='stylesheet')
+    link(href='../public/libs/selectize/dist/css/selectize.bootstrap3.css', rel='stylesheet')
+    link(href='../public/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css', rel='stylesheet')
+    link(href='../public/libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='../public/libs/bootstrap-select/dist/css/bootstrap-select.min.css', rel='stylesheet')
+block js
+    script(src='../public/libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='../public/libs/datatables/media/js/dataTables.select.js')
+    script(src='../public/libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='../public/libs/selectize/dist/js/standalone/selectize.min.js')
+    script(src='../public/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+    script(src='../public/libs/bootstrap-select/dist/js/bootstrap-select.min.js')
+
+
+
+    if !release
+        script(src='../public/js/myjava.js')
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdO3AMO9S6Q27IOYC44SAYRcrxGVZxSJA")
+        script(src="../socket.io/socket.io.js")    
+        script(src="../public/js/marker.js")
+        script(src="../public/js/gmaps.js") 
+

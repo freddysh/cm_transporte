@@ -1,0 +1,46 @@
+div(class="modal fade" id="myModalRuta" name="myModalRuta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+
+    div(class="modal-dialog modal-lg")
+
+        div(class="modal-content")
+
+            div(class="modal-header")
+
+                button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+                .row
+                    .col-sm-5
+                        h4(class="modal-title" id="myModalLabel") Mapa 
+                
+                    .col-sm-5
+                        select(id="velocidades" onchange="validarColor(this)")
+                                option(value="0") Seleccionar Zona
+                                    each Velocidad in velocidades                                
+                                        option(value="#{Velocidad.idvelocidad}"  style="color:#{Velocidad.color}") #{Velocidad.zona}
+                                            
+
+            div(class="modal-body" )
+
+            
+                                   
+                form.form.users-new(action="JavaScript:GuardarMapa()" method="post" id="formNuevoMapa" name="formNuevoMapa")
+                        .container-fluid.float-left
+                            .row
+                                .col-md-12
+                                                               
+                                    div(id="map" style="width:100%;height:500px;")  
+                                                                    
+                                                                       
+
+                             div(class="modal-footer")
+                                button.btn.btn-primary(type="submit"  id="btnGuardar") Guardar 
+                                button.btn.btn-info(type="button"  id="btnLimpiar"  onClick="BorrarLinea()" ) Limpiar 
+                                button.btn.btn-danger( id="btnElimiar" type="button" onClick="EliminarMapa()") Quitar Mapa 
+                                
+
+                               
+                                
+                                                                                                   
+                                                                                                    
+                                                            
+                                                                                                            
+                                                

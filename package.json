@@ -1,0 +1,28 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "Transporte publico",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cesar",
+  "license": "ISC",
+  "repository": {},
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bower": "^1.8.0",
+    "browser-sync": "^2.18.8",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "jade": "^1.11.0",
+    "mysql": "^2.13.0",
+    "net": "^1.0.2",
+    "socket.io": "^1.7.3",
+    "typescript": "^2.5.0-dev.20170808",
+    "url": "^0.11.0",
+    "v8-profiler": "^5.7.0"
+  }
+}

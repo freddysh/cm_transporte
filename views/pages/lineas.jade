@@ -1,0 +1,97 @@
+extends ../parts/layout.jade
+block vars
+    - page = 'Lineas';
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./index.jade") Inicio
+                li.active Lineas
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__table_data
+            
+                .row
+                    
+                    .col-md-12
+                        .panel.panel-info
+                            .panel-heading
+                                h3.panel-title Lineas de Transporte
+                                button(class="btn btn-primary"  data-toggle="modal" onclick="NuevaLinea()") Nuevo
+                                    i(class="fa fa-plus-circle fa-fw") 
+                                                                  
+                            .panel-body
+                                body(onload="ConectadosLinea()")
+                                    div(id="DatosLinea")
+                                    
+                                    .container-fluid
+                                                        table(id="tableLineas" class="table datatable display table-hover" cellspacing="0" width="100%")
+                                                            thead
+                                                                tr
+                                                                    th Nombre
+                                                                    th Ruta
+                                                                    th Direccion
+                                                                    th Responsable
+                                                                    th Telefono
+                                                                    th Total V
+                                                                    th Conectados
+                                                                    th Editar
+                                                                    th Mapa
+                                                            tbody
+                                                                each Lineas in lineas
+                                                                    tr
+                                                                        td=Lineas.nombre
+                                                                        td=Lineas.ruta
+                                                                        td=Lineas.direccion
+                                                                        td=Lineas.responsable
+                                                                        td=Lineas.telefono
+                                                                        td=Lineas.NUM
+                                                                        td(style="display:none;")=Lineas.idlinea
+                                                                        td(id="#{Lineas.idlinea}")=0
+                                                                        td
+                                                                            button(class="btn btn-warning" onClick="EditarLinea('"+Lineas.idlinea+"')") 
+                                                                                i(class="fa fa-pencil fa-fw")
+
+                                                                            button(class="btn btn-danger" onClick="EliminarLinea('"+Lineas.idlinea+"')") 
+                                                                                i(class="fa fa-remove fa-fw")
+                                                                        td 
+                                                                            button(class="btn btn-success" onClick="NuevoMapa('"+Lineas.idlinea+"')") Mapa
+
+                                                                              
+                                                                                                                                            
+                                                
+                                    
+block css
+    link(href='../public/libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='../public/libs/selectize/dist/css/selectize.default.css', rel='stylesheet')
+    link(href='../public/libs/selectize/dist/css/selectize.bootstrap3.css', rel='stylesheet')
+    link(href='../public/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css', rel='stylesheet')
+    link(href='../public/libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='../public/libs/bootstrap-select/dist/css/bootstrap-select.min.css', rel='stylesheet')
+block js
+    script(src='../public/libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='../public/libs/datatables/media/js/dataTables.select.js')
+    script(src='../public/libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='../public/libs/selectize/dist/js/standalone/selectize.min.js')
+    script(src='../public/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+    script(src='../public/libs/bootstrap-select/dist/js/bootstrap-select.min.js')
+
+
+
+    if !release
+        script(src='../public/js/myjava.js')
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdO3AMO9S6Q27IOYC44SAYRcrxGVZxSJA")
+        script(src="../socket.io/socket.io.js")    
+        script(src="../public/js/marker.js")
+        script(src="../public/js/gmaps.js") 
+        script(src='../public/libs/bootstrap/js/bootstrap.min.js')
+       
+
+

@@ -1,0 +1,45 @@
+div(class="modal fade" id="myModalUsuario" name="myModalUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+
+    div(class="modal-dialog")
+
+        div(class="modal-content")
+
+            div(class="modal-header")
+
+                button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+
+                h4(class="modal-title" id="myModalLabel") Nuevo usuario
+            div(class="modal-body")
+
+                     div(id="mensaje" name="mensaje")
+                form.form.users-new(action="JavaScript:GuardarUsuario()" method="post" id="formNuevoUsuario" name="formNuevoUsuario")
+                                                .container-fluid.float-left
+                                                    
+                                                            .row
+                                                                .col-md-12
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="nombre", type="text", placeholder="Nombre" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-envelope
+                                                                            input.form-control(name="usuario" ,type="text", placeholder="Usuario" required)
+                                                                    
+                                                                
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-key
+                                                                            input.form-control(name="password",type="password", placeholder="Password" required)
+                                                            div(class="modal-footer")
+                                                                button.btn.btn-default(type="button", data-dismiss="modal") Close
+                                                                button.btn.btn-primary(type="submit") Save changes
+
+            
+                                                                    
+                                                            
+                                                        
+                    

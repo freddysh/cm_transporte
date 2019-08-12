@@ -1,0 +1,61 @@
+div(class="modal fade" id="myModalLinea" name="myModalLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+
+    div(class="modal-dialog")
+
+        div(class="modal-content")
+
+            div(class="modal-header")
+
+                button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+
+                h4(class="modal-title" id="myModalLabel") Modoficar Linea de Transporte
+            div(class="modal-body")
+
+                     div(id="mensaje" name="mensaje")
+                form.form.users-new(action="JavaScript:ModificarLinea('#{linea[0].idlinea}')" method="post" id="formNuevaLinea" name="formNuevaLinea")
+                                                .container-fluid.float-left
+                                                    .row
+                                                            .col-md-12
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="nombre", type="text", placeholder="Nombre" value="#{linea[0].nombre}" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="ruta", type="text", placeholder="Ruta" value="#{linea[0].ruta}" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="direccion", type="text", placeholder="Direccion" value="#{linea[0].direccion}" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="responsable", type="text", placeholder="Responsable" value="#{linea[0].responsable}")
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="telefono", type="number", placeholder="Telefono" value="#{linea[0].telefono}" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-envelope
+                                                                            input.form-control(name="email" ,type="text", placeholder="Contacto" value="#{linea[0].email}")
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-envelope
+                                                                            input.form-control(name="chofer" ,type="text", placeholder="Chofer" value="#{linea[0].chofer}" )
+                                                    div(class="modal-footer")
+                                                                                                            
+                                                                                                    
+                                                                                                
+                                                        button.btn.btn-default(type="button", data-dismiss="modal") Close
+                                                        button.btn.btn-primary(type="submit") Save changes 
+                                                                                                            
+                                                

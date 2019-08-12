@@ -1,0 +1,36 @@
+div(class="modal fade" id="myModalVelocidad" name="myModalVelocidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+
+    div(class="modal-dialog")
+
+        div(class="modal-content")
+
+            div(class="modal-header")
+
+                button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+
+                h4(class="modal-title" id="myModalLabel") Modificar Velocidad
+            div(class="modal-body")
+
+                     div(id="mensaje" name="mensaje")
+                form.form.users-new(action="JavaScript:ModificarVelocidad('#{velocidad[0].idvelocidad}')" method="post" id="formNuevaVelocidad" name="formNuevaVelocidad")
+                                                .container-fluid.float-left
+                                                    
+                                                            .row
+                                                                .col-md-12
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="zona", type="text", placeholder="Zona" value="#{velocidad[0].zona}" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon 
+                                                                                i.fa.fa-envelope
+                                                                            input.form-control(name="velocidad" ,type="text", placeholder="Velocidad" value="#{velocidad[0].velocidad}" required)
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon Color                                                                           
+                                                                            input.form-control(name="color" ,type="color", value="#{velocidad[0].color}" required)
+                                                            div(class="modal-footer")
+                                                                button.btn.btn-default(type="button", data-dismiss="modal") Close
+                                                                button.btn.btn-primary(type="submit") Guardar

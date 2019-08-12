@@ -1,0 +1,12 @@
+form(action="JavaScript:GuardarConfiguracion()" name="formConfiguracion" id="formConfiguracion")
+                                        .form-horizontal
+                                            .form-group
+                                                label.col-sm-8.control-label SEGURIDAD: Maximo de velocidad cuando la puerta del vehiculo esta abierta:(Km/h)
+                                                .col-sm-3
+                                                    input.form-control(type="text", placeholder="Km/h" name="seguridad" value="#{configuracion[0].seguridad}" required)
+                                            .form-group
+                                                label.col-sm-8.control-label RUTA: Maximo de distancia que el vehiculo puede alejarse de la ruta asiganada:(Metros)
+                                                .col-sm-3
+                                                    input.form-control(type="text", placeholder="Metros" value="#{configuracion[0].ruta}" name="ruta" required)
+                                            button.btn.btn-success(type='submit') GUARDAR
+                                            

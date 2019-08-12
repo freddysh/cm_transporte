@@ -1,0 +1,65 @@
+div(class="modal fade" id="myModalTrabajador" name="myModalTrabajador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+
+    div(class="modal-dialog")
+
+        div(class="modal-content")
+
+            div(class="modal-header")
+
+                button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+
+                h4(class="modal-title" id="myModalLabel") Nuevo Trabajador
+            div(class="modal-body")
+
+                     div(id="mensaje" name="mensaje")
+                form.form.users-new(action="JavaScript:GuardarTrabajador()" method="post" id="formNuevoTrabajador" name="formNuevoTrabajador")
+                                                .container-fluid.float-left
+                                                    .row
+                                                            .col-md-8
+                                                                    
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-briefcase
+                                                                            select.selectpicker(name="linea", placeholder="Linea")
+                                                                                option(value="customer") Customer
+                                                                                option(value="manager") Manager
+                                                                                option(value="admin") Admin
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="nombre", type="text", placeholder="Nombre")
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="direccion", type="text", placeholder="Direccion")
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-envelope
+                                                                            input.form-control(name="email" ,type="text", placeholder="Contacto")
+                                                                    
+                                                                    .form-group
+                                                                        .input-group
+                                                                            .input-group-addon
+                                                                                i.fa.fa-user
+                                                                            input.form-control(name="telefono", type="text", placeholder="Telefono")
+                                                            .col-md-4
+
+                                                                .fileupload
+                                                                    label
+                                                                        .fa.fa-image
+                                                                        input(type='file')
+            div(class="modal-footer")
+                                                                    
+                                                            
+                                                        
+                button.btn.btn-default(type="button", data-dismiss="modal") Close
+                button.btn.btn-primary(type="submit") Save changes                                                             
+                                                                    
+                                                           
+                                                            
+                                                        
+            
